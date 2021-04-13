@@ -6,16 +6,13 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-
-    <title>reveal.js</title>
-
+    <title>LineBotライブコーディング</title>
     <link rel="stylesheet" href="dist/reset.css" />
     <link rel="stylesheet" href="dist/reveal.css" />
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
 		<link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
-    <!-- Theme used for syntax highlighted code -->
     <link
       rel="stylesheet"
       href="plugin/highlight/monokai.css"
@@ -25,37 +22,73 @@
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
     />
-    <!-- <script src="./reveal.js-plugins-master/menu/menu.js"></script> -->
-    <!-- <script src="./reveal.js-plugins-master/audio-slideshow/plugin.js"></script> -->
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-        <section>Slide 1</section>
-        <section class="relative slide2 no-select">
-          <div id="slide2">
-            <p>Slide 2</p>
+        <!-- 1 -->
+        <section >
+          <section>
+            <p>&nbsp;</p>
+            <h3 style="line-height: 2em;" class="relative">Python で Line Bot をつくる<br/>ライブコーディング<p class="fragment _30m">30分で！</p></h3>
+            <div>&nbsp;</div>
+            <p><small>2021/04/21</small></p>
+            <p><small><a href="https://twitter.com/takapiro_99">@takapiro_99</a></small></p>
+          </section>
+          <section>
+            <h3>操作方法</h3>
+            <ul>
+              <li>
+                <code>?</code> &nbsp;ヘルプ
+              </li>
+              <li>
+                <code>esc</code> &nbsp;スライド全体表示
+              </li>
+            </ul>
+          </section>
+        </section>
+        <!-- 2 -->
+        <section class="self-introduction relative slide2 no-select" >
+          <h4 id="slide2" style="display: flex;justify-content: center;align-items: flex-end;">自己紹介</h4>
+          <div style="display: grid;grid-template-columns: 6fr 1fr 5fr;">
+            <small style="display: flex;justify-content: center;align-items: center;">
+              <ul style="vertical-align: middle;">
+                <li>北大機械知 B４</li>
+                <li>HUIT４年目</li>
+                <li>Webフロントエンド、ハード開発など
+                    <ul style="font-size: 80%;line-height: 1.5em !important;">
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>ESPマイコン</li>
+                  </ul>
+                </li>
+                <li>寿司打</li>
+              </ul>
+            </small>
+            <div></div>
+            <p style="display: flex;align-items: center;"><img src="/assets/twitter-profile.png" alt="my profile"></p>
           </div>
+          <!-- <p>ああ</p> -->
           <p class="fragment fade-down push-notification" id="push-notification" style="transition: all 0.2s ease !important">
             <span class="line-icon-row-1">
               <img class="line-icon" src="https://img.icons8.com/color/452/line-me.png" alt="line icon" srcset="">
               <span>LINE</span>
-              <span style="margin-left:auto">今&nbsp;&nbsp;</span>
+              <span style="margin-left:auto">今&nbsp;&nbsp;&nbsp;</span>
             </span>
             <span class="line-name">
               たかし
             </span>
             <span class="line-content">
-              久しぶりー
+              たかぴろ！久しぶり！！
             </span>
           </p>
         </section>
-        <section class="scrollable-slide container" >
+        <section class="scrollable-slide container">
 					<div class="line-talk-screen container" data-background-repeat="repeat">
           <p class="toaru">今日</p>
-          <p time="22:13" class="you">おお</p>
-          <p time="22:13" class="fragment me" kidoku="既読">久しぶり！</p>
-          <p time="22:13" class="fragment me noArrow" kidoku="既読" >w</p>
+          <p time="22:13" class="you">たかぴろ！久しぶり！！</p>
+          <p time="22:13" class="fragment me" kidoku="既読">久しぶりｗ</p>
+          <p time="22:13" class="fragment me noArrow" kidoku="既読" >どしたん</p>
           <p time="22:13" class="fragment you">おお</p>
           <p time="22:13" class="fragment you noArrow">おおお</p>
           <p time="22:13" class="fragment me" kidoku="既読">ああ</p>
@@ -69,6 +102,90 @@
           <p time="22:13" class="fragment me" kidoku="既読">うん</p>
           <p time="22:13" class="fragment you">おおー</p>
         </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ### 作るもの
+              <br/>
+              
+              - レシピを提案してくれる Line Bot
+              - ジャンルもある程度指定したい
+            </textarea>
+          </section>
+          <section>
+            linebot
+          </section>
+        </section>
+        <section>
+          <section data-markdown>
+            <textarea data-template>
+              ### 作り方
+              <br/>
+
+              1. 楽天レシピ API を使う
+              1.  Python でサーバーを書く
+              1.  ライブラリは flask を使う
+              1.  Heroku にデプロイする
+            </textarea>
+          </section>
+          <section>
+            <h3>
+              1. 楽天レシピAPI
+            </h3>
+          </section>
+          <section>
+            <h3>
+              2. Python &nbsp; 3. flask
+            </h3>
+          </section>
+          <section>
+            <h3>
+              4. Heroku にデプロイ
+            </h3>
+          </section>
+        </section>
+        <section>では…</section>
+        <section>
+          <section>
+            <p>
+              開発開始！
+            </p>
+            <div>&nbsp;</div>
+            <p style="font-size: 60px;">
+            <countdown time="1800" autostart='yes'/>
+            <!-- <countdown time="5" autostart="yes" /> -->
+          </p>
+          <div>&nbsp;</div>
+          </section>
+        </section>
+        <section>
+          <h3>ありがとうございました！！</h3>
+          <p>&nbsp;</p>
+          <small>
+            <ul>
+              <li>30分で全部作るのは演出です</li>
+              <li>普通にやったら丸一日くらいかかりました</li>
+              <li>面白いなって思ってくれたら嬉しいです！</li>
+            </ul>
+          </small>
+        </section>
+        <section>
+          <section>
+            <h4>
+              この資料は <a href="https://revealjs.com/">reveal.js</a> で作りました
+            </h4>
+            <img src="/assets/revealjs-image.png" alt="">
+          </section>
+          <section>
+            <ul>
+              <li>HTML/CSS/JS のプレゼン作れるフレームワーク</li>
+              <li>サードパーティーのモジュールが充実してました</li>
+              <li>一部 Markdown でも書きました、簡単でした</li>
+              <li>凝ったプレゼン作りたいときには良い</li>
+              <li>けど割と時間かかりました</li>
+            </ul>
+          </section>
+        </section>
 			</div>
       </div>
     </div>
@@ -80,6 +197,7 @@
     <script src="plugin/drawer/drawer.js"></script>
     <script src="plugin/zoom/zoom.js"></script>
     <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/countdown/countdown.js"></script>
     <link rel="stylesheet" href="plugin/drawer/drawer.css"/>
     <script>
       // More info about initialization & config:
@@ -87,6 +205,7 @@
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
+        countdown: { defaultTime: 600, autostart: "no" },
         drawer: {
           toggleDrawKey: "d", // (optional) key to enable drawing, default "d"
           toggleBoardKey: "t", // (optional) key to show drawing board, default "t"
@@ -103,7 +222,9 @@
           RevealDrawer,
           RevealZoom,
         ],
-
+        dependencies: [
+          { src: "plugin/countdown/countdown.js" },
+        ],
         // Can be used to limit the contexts in which the slide number appears
         // - "all":      Always show the slide number
         // - "print":    Only when printing to PDF
@@ -174,7 +295,7 @@
         const index = event.fragment.dataset.fragmentIndex;
         const element = document.querySelectorAll(".scrollable-slide")[0];
         const bottom = element.scrollHeight - element.clientHeight;
-        let top = (index - 0) * (event.fragment.scrollHeight + 30) + iikanjiOffset;
+        let top = (index - 0) * (event.fragment.scrollHeight + 10) + iikanjiOffset;
         if (isHidden) {
           top -= event.fragment.scrollHeight;
         }
