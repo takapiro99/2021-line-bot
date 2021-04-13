@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
 		<link rel="preconnect" href="https://fonts.gstatic.com">
-		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <!-- Theme used for syntax highlighted code -->
     <link
       rel="stylesheet"
@@ -32,22 +32,39 @@
     <div class="reveal">
       <div class="slides">
         <section>Slide 1</section>
-        <section>Slide 2</section>
+        <section class="relative slide2 no-select">
+          <div id="slide2">
+            <p>Slide 2</p>
+          </div>
+          <p class="fragment fade-down push-notification" id="push-notification" style="transition: all 0.2s ease !important">
+            <span class="line-icon-row-1">
+              <img class="line-icon" src="https://img.icons8.com/color/452/line-me.png" alt="line icon" srcset="">
+              <span>LINE</span>
+              <span style="margin-left:auto">今&nbsp;&nbsp;</span>
+            </span>
+            <span class="line-name">
+              たかし
+            </span>
+            <span class="line-content">
+              久しぶりー
+            </span>
+          </p>
+        </section>
         <section class="scrollable-slide container" >
 					<div class="line-talk-screen container" data-background-repeat="repeat">
-          <p>とある日</p>
+          <p class="toaru">今日</p>
+          <p time="22:13" class="you">おお</p>
           <p time="22:13" class="fragment me" kidoku="既読">久しぶり！</p>
           <p time="22:13" class="fragment me noArrow" kidoku="既読" >w</p>
           <p time="22:13" class="fragment you">おお</p>
-          <p time="22:13" class="fragment you">おおお</p>
-          <!-- <p time="22:13" class="fragment you">まあ元気だよ</p> -->
+          <p time="22:13" class="fragment you noArrow">おおお</p>
           <p time="22:13" class="fragment me" kidoku="既読">ああ</p>
           <p time="22:13" class="fragment me" kidoku="既読">えあ</p>
           <p time="22:13" class="fragment you">ええ</p>
           <p time="22:13" class="fragment me" kidoku="既読">えあー</p>
           <p time="22:13" class="fragment me" kidoku="既読">ｗｗ</p>
           <p time="22:13" class="fragment you">なんやそれ</p>
-          <p time="22:13" class="fragment you">ｗｗｗ</p>
+          <p time="22:13" class="fragment you noArrow">ｗｗｗ</p>
           <p time="22:13" class="fragment me" kidoku="既読">まあ</p>
           <p time="22:13" class="fragment me" kidoku="既読">うん</p>
           <p time="22:13" class="fragment you">おおー</p>
@@ -60,20 +77,31 @@
     <script src="plugin/notes/notes.js"></script>
     <script src="plugin/markdown/markdown.js"></script>
     <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/drawer/drawer.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
     <script src="plugin/chalkboard/plugin.js"></script>
+    <link rel="stylesheet" href="plugin/drawer/drawer.css"/>
     <script>
       // More info about initialization & config:
       // - https://revealjs.com/initialization/
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-
+        drawer: {
+          toggleDrawKey: "d", // (optional) key to enable drawing, default "d"
+          toggleBoardKey: "t", // (optional) key to show drawing board, default "t"
+          colors: ["#fa1e0e", "#8ac926", "#1982c4", "#ffca3a"], // (optional) list of colors avaiable (hex color codes)
+          color: "#FF0000", // (optional) color of a cursor, first color from `codes` is a default
+          pathSize: 4, // (optional) path size in px, default 4
+        },
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [
           RevealMarkdown,
           RevealHighlight,
           RevealNotes,
           RevealChalkboard,
+          RevealDrawer,
+          RevealZoom,
         ],
 
         // Can be used to limit the contexts in which the slide number appears
@@ -88,45 +116,6 @@
 
         // Flags if speaker notes should be visible to all viewers
         showNotes: false,
-
-        // Can be used to globally disable auto-animation
-        autoAnimate: true,
-
-        // Optionally provide a custom element matcher that will be
-        // used to dictate which elements we can animate between.
-        autoAnimateMatcher: null,
-
-        // Default settings for our auto-animate transitions, can be
-        // overridden per-slide or per-element via data arguments
-        autoAnimateEasing: "ease",
-        autoAnimateDuration: 1.0,
-        // autoAnimateDuration: 0.3,
-        autoAnimateUnmatched: true,
-
-        // CSS properties that can be auto-animated. Position & scale
-        // is matched separately so there's no need to include styles
-        // like top/right/bottom/left, width/height or margin.
-        autoAnimateStyles: [
-          "opacity",
-          "color",
-          "background-color",
-          "padding",
-          "font-size",
-          "line-height",
-          "letter-spacing",
-          "border-width",
-          "border-color",
-          "border-radius",
-          "outline",
-          "outline-offset",
-        ],
-
-        // Controls automatic progression to the next slide
-        // - 0:      Auto-sliding only happens if the data-autoslide HTML attribute
-        //           is present on the current slide or fragment
-        // - 1+:     All slides will progress automatically at the given interval
-        // - false:  No auto-sliding, even if data-autoslide is present
-        autoSlide: 0,
 
         // Opens links in an iframe preview overlay
         // Add `data-preview-link` and `data-preview-link="false"` to customise each link
@@ -174,6 +163,13 @@
       });
       const iikanjiOffset = -400;
       const iikanjiScroller = (event, isHidden) => {
+        if(event.fragment.id === 'push-notification'){
+          if(isHidden){
+            document.getElementById("slide2").classList.remove("blur-all")
+          }else{
+            document.getElementById("slide2").classList.add("blur-all")
+          }
+        }
         // event.fragment = the fragment DOM element
         const index = event.fragment.dataset.fragmentIndex;
         const element = document.querySelectorAll(".scrollable-slide")[0];
@@ -191,26 +187,5 @@
       Reveal.on("fragmentshown", iikanjiScroller);
       Reveal.on("fragmenthidden", (e) => iikanjiScroller(e, true));
     </script>
-    <style>
-      .scrollable-slide {
-        height: 800px;
-        overflow-y: auto !important;
-      }
-      ::-webkit-scrollbar {
-        width: 6px;
-				display: none;
-      }
-      ::-webkit-scrollbar-track {
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-				border-radius: 50%;
-				display: none;
-      }
-      ::-webkit-scrollbar-thumb {
-        background-color: #333;
-      }
-      ::-webkit-scrollbar-corner {
-        background-color: #333;
-      }
-    </style>
   </body>
 </html>
