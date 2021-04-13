@@ -1,0 +1,113 @@
+.container {
+  margin: 0 auto;
+  /* max-width: 1280px; */
+  max-width: 1280px;
+  width: 90%;
+}
+
+@media only screen and (min-width: 601px) {
+  .container {
+    width: 85%;
+  }
+}
+@media only screen and (min-width: 993px) {
+  .container {
+    width: 70%;
+  }
+}
+
+.me,
+.you{
+  font-family: "Noto Sans JP", sans-serif;
+  border-radius: 55px;
+  color: #161616;
+  padding: 12px 25px 15px 25px;
+  position: relative;
+  z-index: 3;
+  display: table;
+  margin-bottom: 30px !important;
+  font-size: 75%;
+}
+
+.me {
+  background-color: #79e277;
+  margin-left: auto !important;
+  margin-right: 10px !important;
+  /* margin: 10px 0px 10px auto; */
+  /* margin-left: 30% !important; */
+  /* max-width: 80%; */
+}
+
+.me:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  right: 0px;
+  width: 80px;
+  height: 60px;
+  background-color: transparent;
+  box-shadow: inset -3px -23px 0px 0px #79e277;
+  border-bottom-right-radius: 50px;
+  transform: rotateZ(25deg);
+  z-index: -3;
+}
+
+.noArrow:before {
+  content: none !important;
+}
+
+.me:after {
+  content: "  "attr(kidoku)"\A"attr(time);
+  position: absolute;
+  bottom: 5px;
+  left: -60px;
+  color: rgba(0, 0, 0, 0.55);
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  font-size: 65%;
+}
+
+.you {
+  background-color: #ffffff;
+  margin-left: 10px !important;
+}
+
+/* --main-bg-color: brown; */
+/* background-color: var(--main-bg-color); */
+.you:before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  width: 80px;
+  height: 60px;
+  background-color: transparent;
+  box-shadow: inset 3px -23px 0px 0px #ffffff;
+  border-bottom-left-radius: 50px;
+  transform: rotateZ(-25deg);
+  z-index: -3;
+}
+
+.you:after {
+  content: "\A"attr(time);
+  position: absolute;
+  bottom: 7px;
+  right: -58px;
+  color: rgba(0, 0, 0, 0.55);
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  font-size: 65%;
+}
+
+.slides section .fragment {
+  transition: all 0.1s ease !important;
+}
+
+.line-talk-screen {
+  padding: 10px;
+  border-radius: 12px;
+  background-color: #8cabd8;
+  height: 2000px;
+}

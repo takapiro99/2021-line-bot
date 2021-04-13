@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="dist/theme/solarized.css" id="theme" />
+		<link rel="preconnect" href="https://fonts.gstatic.com">
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <!-- Theme used for syntax highlighted code -->
+    <link
+      rel="stylesheet"
+      href="plugin/highlight/monokai.css"
+      id="highlight-theme"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
+    />
+    <!-- <script src="./reveal.js-plugins-master/menu/menu.js"></script> -->
+    <!-- <script src="./reveal.js-plugins-master/audio-slideshow/plugin.js"></script> -->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>Slide 1</section>
+        <section>Slide 2</section>
+        <section class="scrollable-slide container" >
+					<div class="line-talk-screen container" data-background-repeat="repeat">
+          <p>とある日</p>
+          <p time="22:13" class="fragment me" kidoku="既読">久しぶり！</p>
+          <p time="22:13" class="fragment me noArrow" kidoku="既読" >w</p>
+          <p time="22:13" class="fragment you">おお</p>
+          <p time="22:13" class="fragment you">おおお</p>
+          <!-- <p time="22:13" class="fragment you">まあ元気だよ</p> -->
+          <p time="22:13" class="fragment me" kidoku="既読">ああ</p>
+          <p time="22:13" class="fragment me" kidoku="既読">えあ</p>
+          <p time="22:13" class="fragment you">ええ</p>
+          <p time="22:13" class="fragment me" kidoku="既読">えあー</p>
+          <p time="22:13" class="fragment me" kidoku="既読">ｗｗ</p>
+          <p time="22:13" class="fragment you">なんやそれ</p>
+          <p time="22:13" class="fragment you">ｗｗｗ</p>
+          <p time="22:13" class="fragment me" kidoku="既読">まあ</p>
+          <p time="22:13" class="fragment me" kidoku="既読">うん</p>
+          <p time="22:13" class="fragment you">おおー</p>
+        </section>
+			</div>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [
+          RevealMarkdown,
+          RevealHighlight,
+          RevealNotes,
+          RevealChalkboard,
+        ],
+
+        // Can be used to limit the contexts in which the slide number appears
+        // - "all":      Always show the slide number
+        // - "print":    Only when printing to PDF
+        // - "speaker":  Only in the speaker view
+        showSlideNumber: "all",
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Can be used to globally disable auto-animation
+        autoAnimate: true,
+
+        // Optionally provide a custom element matcher that will be
+        // used to dictate which elements we can animate between.
+        autoAnimateMatcher: null,
+
+        // Default settings for our auto-animate transitions, can be
+        // overridden per-slide or per-element via data arguments
+        autoAnimateEasing: "ease",
+        autoAnimateDuration: 1.0,
+        // autoAnimateDuration: 0.3,
+        autoAnimateUnmatched: true,
+
+        // CSS properties that can be auto-animated. Position & scale
+        // is matched separately so there's no need to include styles
+        // like top/right/bottom/left, width/height or margin.
+        autoAnimateStyles: [
+          "opacity",
+          "color",
+          "background-color",
+          "padding",
+          "font-size",
+          "line-height",
+          "letter-spacing",
+          "border-width",
+          "border-color",
+          "border-radius",
+          "outline",
+          "outline-offset",
+        ],
+
+        // Controls automatic progression to the next slide
+        // - 0:      Auto-sliding only happens if the data-autoslide HTML attribute
+        //           is present on the current slide or fragment
+        // - 1+:     All slides will progress automatically at the given interval
+        // - false:  No auto-sliding, even if data-autoslide is present
+        autoSlide: 0,
+
+        // Opens links in an iframe preview overlay
+        // Add `data-preview-link` and `data-preview-link="false"` to customise each link
+        // individually
+        previewLinks: false,
+
+        // Transition style
+        // transition: "slide", // none/fade/slide/convex/concave/zoom
+        transition: "slide", // none/fade/slide/convex/concave/zoom
+
+        // Transition speed
+        // transitionSpeed: "default", // default/fast/slow
+        transitionSpeed: "default", // default/fast/slow
+
+        // Transition style for full page slide backgrounds
+        backgroundTransition: "fade", // none/fade/slide/convex/concave/zoom
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+      });
+      function resetSlideScrolling(slide) {
+        slide.classList.remove("scrollable-slide");
+      }
+
+      function handleSlideScrolling(slide) {
+        if (slide.scrollHeight >= 800) {
+          slide.classList.add("scrollable-slide");
+        }
+      }
+
+      Reveal.addEventListener("ready", function (event) {
+        handleSlideScrolling(event.currentSlide);
+      });
+
+      Reveal.addEventListener("slidechanged", function (event) {
+        if (event.previousSlide) {
+          resetSlideScrolling(event.previousSlide);
+        }
+        handleSlideScrolling(event.currentSlide);
+      });
+      const iikanjiOffset = -400;
+      const iikanjiScroller = (event, isHidden) => {
+        // event.fragment = the fragment DOM element
+        const index = event.fragment.dataset.fragmentIndex;
+        const element = document.querySelectorAll(".scrollable-slide")[0];
+        const bottom = element.scrollHeight - element.clientHeight;
+        let top = (index - 0) * (event.fragment.scrollHeight + 30) + iikanjiOffset;
+        if (isHidden) {
+          top -= event.fragment.scrollHeight;
+        }
+        element.scrollTo({
+          top: top,
+          left: 0,
+          behavior: "smooth",
+        });
+      };
+      Reveal.on("fragmentshown", iikanjiScroller);
+      Reveal.on("fragmenthidden", (e) => iikanjiScroller(e, true));
+    </script>
+    <style>
+      .scrollable-slide {
+        height: 800px;
+        overflow-y: auto !important;
+      }
+      ::-webkit-scrollbar {
+        width: 6px;
+				display: none;
+      }
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+				border-radius: 50%;
+				display: none;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #333;
+      }
+      ::-webkit-scrollbar-corner {
+        background-color: #333;
+      }
+    </style>
+  </body>
+</html>
