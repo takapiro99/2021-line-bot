@@ -94,13 +94,13 @@ section > * {
 .me:after {
   content: "  " attr(kidoku) "\A"attr(time);
   bottom: 5px;
-  left: -60px;
+  left: -50px;
 }
 
 .you:after {
   content: "\A"attr(time);
   bottom: 7px;
-  right: -58px;
+  right: -50px;
 }
 
 .slides section .fragment {
@@ -166,15 +166,13 @@ section > * {
   display: grid;
   grid-template-rows: 2.4em 2em 2em;
   font-family: "Noto Sans JP", sans-serif;
+  z-index: 5;
+  backdrop-filter: blur(17px) !important;
 }
 
 .slide2 {
   height: 100%;
   display: grid;
-}
-
-.blur-all {
-  filter: blur(15px);
 }
 
 .line-icon {
